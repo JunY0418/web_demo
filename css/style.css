@@ -76,7 +76,7 @@ a {
 }
 
 #scroll-top:hover {
-  background-color: #d0fff4;
+  background-color: #ff7474;
   color: #000000;
   text-decoration: none;
   cursor: grabbing;
@@ -86,7 +86,7 @@ a {
   color: white;
   font-size: 24px;
   font-weight: bold;
-  background-color: #ff4444;
+  background-color: #ff7474;
   display: block;
   padding: 20px 60px;
   border-radius: 4px;
@@ -113,10 +113,16 @@ header {
   font-weight: bold;
 }
 
+.logo img {
+  width: 40%;
+  height: 20%;
+  max-width: 100%;
+}
+
 .header-nav-item {
   float: right;
   margin-left: 30px;
-  line-height: 36px;
+  line-height: 60px;
 }
 
 .header-nav-item a {
@@ -158,7 +164,27 @@ header {
 top
 =========================*/
 .top {
-  background-image: url(/img/main-vsual-nontitle.png);
+  background-image: url(/img/header-wasego.jpg);
+  background-repeat: no-repeat;
+  /* background-size: contain; */
+  /* width: auto; */
+  height: 600px;
+  background-position:center;
+  background-size:cover;
+  /* width: 100%;
+  height: auto; */
+}
+
+.top img {
+  height: auto 100%;
+  width: 100vw;
+  display: block;
+}
+
+.top .container {
+  margin-top: 60px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .top .top-title {
@@ -189,17 +215,33 @@ about
 course
 =========================*/
 .course {
-  background-color: #cbfff5;
+  background-color: #f7adad;
 }
 
 .course-wrapper {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .course-wrapper .course-item {
-  width: 30%;
+  width: 40%;
+  /* margin: 10px; */
+  padding-bottom: 50px;
+
+/* ふわっと表示 */
+  /* opacity: 0;
+  visibility: hidden;
+  transform: translateY(50px);
+  transition: all 1s; */
 }
+
+/* ふわっと表示 */
+/* .course-wrapper.course-item.is-show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+} */
 
 .course-wrapper p {
   text-align: center;
@@ -218,6 +260,7 @@ course
 
 .course-item a img {
   width: 100%;
+  border-radius: 5px;
 }
 
 .modal {
@@ -255,8 +298,286 @@ course
 }
 
 /*========================
+count down
+=========================*/
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900");
+html {
+    display: grid;
+    min-height: 100%;
+}
+.countdown .container {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+}
+h1 {
+    font-family: "Lato", sans-serif;
+    text-align: center;
+    margin-top: 2em;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #F6F4F3;
+}
+#timer {
+    color: #F6F4F3;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Lato", sans-serif;
+    font-size: .7em;
+    letter-spacing: 5px;
+    margin-top: 0;
+}
+.days, .hours, .minutes, .seconds {
+    display: inline-block;
+    padding: 20px;
+    width: 140px;
+    border-radius: 5px;
+}
+.days {
+    background: #EF2F3C;
+}
+.hours {
+    background: #F6F4F3;
+    color: #183059;
+}
+.minutes {
+    background: #276FBF;
+    display: inline-block;
+    text-align: center;
+
+}
+.seconds {
+    background: #F0A202;
+    text-align: center;
+}
+
+.numbers {
+    font-family: "Montserrat", sans-serif;
+    color: #183059;
+    font-size: 4em;
+}
+.white {
+    position: absolute;
+    background: #F6F4F3;
+    height: 85px;
+    width: 75px;
+    left: 30%;
+    top: 2%;
+}
+.white .triangle {
+    border-bottom: 14px solid #F6F4F3;
+}
+.white .string {
+    background: #F6F4F3;
+    border: 1px solid #F6F4F3;
+}
+.red {
+    position: absolute;
+    background: #EF2F3C;
+    left: 18%;
+    top: 9%;
+    height: 65px;
+    width: 70px;
+}
+.red .triangle {
+    border-bottom: 14px solid #EF2F3C;
+}
+.red .string {
+    background: #EF2F3C;
+    border: 1px solid #EF2F3C;
+}
+.blue {
+    position: absolute;
+    background: #276FBF;
+    height: 80px;
+    width: 80px;
+    left: 60%;
+    top: 5%;
+}
+.blue .triangle {
+    border-bottom: 14px solid #276FBF;
+}
+.blue .string {
+    background: #276FBF;
+    border: 1px solid #276FBF;
+}
+.balloon {
+    border: 1px solid #000;
+    border-radius: 50% 50% 50% 50%/ 40% 40% 60% 60%;
+    z-index: 2;
+}
+.eye {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    top: 40%;
+    left: 22%;
+    background: #000;
+    border-radius: 50%;
+}
+.eye:after {
+    content: '';
+    left: 35px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #000;
+    position: absolute;
+}
+.mouth {
+    position: absolute;
+    top: 45%;
+    left: 43%;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+.happy {
+    border: 2px solid;
+    border-color: transparent #000 #000 transparent;
+    transform: rotate(45deg);
+}
+.triangle {
+    position: absolute;
+    left: 40%;
+    bottom: -10%;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+}
+.string {
+    position: absolute;
+    height: 70px;
+    width: 1px;
+    left: 48%;
+    top: 100%;
+    z-index: -1;
+    text-align: center;
+    /* margin:0 auto */
+}
+.star {
+    width: 20px;
+    height: 20px;
+    background: #F6F4F3;
+    -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+.star-red {
+    width: 30px;
+    height: 30px;
+    margin-left: 51px;
+    margin-top: -5px;
+    background: #EF2F3C;
+    -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    text-transform: uppercase;
+    padding: 10px;
+    font-family: "Lato", sans-serif;
+    font-size: 0.7em;
+}
+footer p {
+    letter-spacing: 3px;
+    color: #EF2F3C;
+}
+footer a {
+    color: #F6F4F3;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #276FBF;
+} */
+
+/*========================
 contact
 =========================*/
+/*=======
+contact table
+=======*/
+.form-text {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  max-width: 400px;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 10px;
+  height: 200px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.contact-sex + .contact-sex {
+  margin-left: 10px;
+}
+
+.contact-sex-txt {
+  margin-left: 5px;
+}
+
+.form-select {
+  width: 180px;
+  height: 40px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-skill {
+  display: block;
+}
+
+.contact-skill + .contact-skill {
+  margin-top: 10px;
+}
+
+.contact-skill-txt {
+  margin-left: 5px;
+}
+
+.contact-submit {
+  width: 250px;
+  /* 横幅指定 */
+  background-color: #ff7474;
+  /* 背景色 */
+  color: #fff;
+  /* 文字色 */
+  font-weight: bold;
+  /* 文字の太さ */
+  display: block;
+  /* インライン要素をブロック要素に変更 */
+  margin: 0 auto;
+  /* 中央寄せ */
+  font-size: 16px;
+  /* 文字の大きさ */
+  padding: 15px;
+  /* 内側の余白 */
+  border-radius: 100vh;
+  /* 角丸指定 */
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
 .contact h2 {
   font-size: 35px;
 }
@@ -266,18 +587,31 @@ contact
   margin-bottom: 20px;
 }
 
-input[type="email"] {
-  width: 600px;
-  font-size: 18px;
-  text-align: center;
-  display: block;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #00ff7b;
-  border-image: initial;
-  border-radius: 999px;
-  margin: auto auto 20px;
-  padding: 10px;
+.contact-item,
+.contact-body {
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.contact-item {
+  text-align: left;
+  /* テキスト左寄せ */
+  width: 30%;
+  /* 横幅30%指定（グレーの背景色部分） */
+  background-color: #eee;
+  /* グレーの背景色 */
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.contact-body {
+  width: 70%;
+  /* 横幅70%指定（白背景色部分） */
+}
+
+.contact-table {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 /*========================
@@ -295,9 +629,147 @@ footer p {
   padding: 10px;
 }
 
+
+
+
 /*====================================================
 スマホ用
 ====================================================*/
+@media only screen and (max-width:767px) {
+
+section .section-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+section {
+    padding: 30px 0;
+}
+
 /*========================
 header
 =========================*/
+
+header {
+  padding: 20px 0;
+}
+
+.logo {
+  float: none;
+  text-align: center;
+}
+
+.logo h1 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.header-nav {
+  float: none;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-nav-item {
+  float: none;
+  margin: 0;
+  text-align: center;
+}
+
+#toggle {
+  position: relative;
+}
+
+.toggle-list {
+  display: none;
+  width: 80px;
+  border: 1px solid #a3a0a0;
+  position: absolute;
+  top: 40px;
+  text-align: right;
+  background-color: #fafafa;
+}
+
+.toggle-list li {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  list-style-type: none;
+  text-align: center;
+}
+
+/*========================
+top
+=========================*/
+.top {
+  padding: 80px 0;
+}
+
+.top .top-title {
+  font-size: 25px;
+}
+
+.top .top-subtitle {
+  font-size: 14px;
+}
+
+/*========================
+about
+=========================*/
+.about .about-left {
+  float: none;
+  width: 100%;
+}
+
+.about .about-right {
+  float: none;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.about .about-right p {
+  font-size: 14px;
+}
+
+/*========================
+countdown
+=========================*/
+.days, .hours, .minutes, .seconds {
+  margin: 10px;
+}
+
+/*========================
+course
+=========================*/
+.course .course-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.course .course-item {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.course .course-item p {
+  background-color: #fff;
+  padding: 3px;
+  margin-top: -6px;
+}
+
+/*========================
+footer
+=========================*/
+
+footer .copyright {
+  float: none;
+  font-size: 9px;
+  text-align: center;
+}

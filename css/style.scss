@@ -1,7 +1,8 @@
 /*========================
 body / section の統一
 =========================*/
-
+$base-color :#ff7474;
+$second-base-color :#c8bdff;
 /*文字の統一*/
 body {
     color: #082B48;
@@ -73,7 +74,7 @@ a {
     padding: 20px 20px;
 }
 #scroll-top:hover {
-    background-color: #d0fff4;
+    background-color: $base-color;
     color: #000000;
     text-decoration: none;
     cursor: grabbing;
@@ -83,7 +84,7 @@ a {
     color: rgb(255, 255, 255);
     font-size: 24px;
     font-weight: bold;
-    background-color: rgb(255, 68, 68);
+    background-color: $base-color;
     display: block;
     padding: 20px 60px;
     border-radius: 4px;
@@ -107,12 +108,18 @@ header {
         font-size: 20px;
         font-weight: bold;
     }
+
+    img {
+        width: 40%;
+        height: 20%;
+        max-width: 100%;
+    }
 }
 
 .header-nav-item {
     float: right;
     margin-left: 30px;
-    line-height: 36px;
+    line-height: 60px;
     a {
         font-weight: bold;
     }
@@ -155,7 +162,19 @@ header {
 top
 =========================*/
 .top {
-    background-image: url(/img/main-vsual-nontitle.png);
+    background-image: url(/img/header-wasego.jpg);
+    background-repeat: no-repeat;
+    // background-position: 50%;
+    background-size: contain;
+    width: auto;
+    height: 600px;
+
+    .container {
+        margin-top: 60px;
+        backdrop-filter: blur(12px);
+        background: rgba(#fff,.1);
+    }
+
 
     .top-title {
         font-size: 40px;
@@ -165,6 +184,11 @@ top
     .top-subtitle {
         font-size: 25px;
         text-align: center;
+    }
+
+    img {
+        height: auto 100%;
+        width: 100%;
     }
 }
 
@@ -189,14 +213,18 @@ course
 =========================*/
 
 .course {
-    background-color: #cbfff5;
+    background-color: $second-base-color;
 }
 .course-wrapper {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+
     .course-item {
-        width: 30%;
+        width: 40%;
+        margin: 10px;
+        padding-bottom: 10px;
     }
+
     p {
         text-align: center;
         font-weight: bold;
@@ -205,6 +233,10 @@ course
         margin-top: -9px;
         padding-top: 3px;
         padding-bottom: 2px;
+    }
+
+    img {
+        border-radius: 5px;
     }
 }
 
@@ -215,6 +247,7 @@ course
 
 .course-item a img {
     width: 100%;
+    border-radius: 10px;
 }
 
 .modal {
@@ -244,17 +277,323 @@ course
     position: absolute;
     right: 20px;
     top: 0;
-  }
+}
 
 .close-btn a {
     color: #fff;
     text-decoration: none;
-  } 
+}
 
+/*========================
+count down
+=========================*/
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900');
+
+$font: 'Lato', sans-serif;
+$big: 'Montserrat', sans-serif;
+
+$red: #EF2F3C;
+$white: #F6F4F3;
+$blue: #276FBF;
+$dark: #183059;
+$yellow: #F0A202;
+
+$star: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  
+html {
+  display: grid;
+  min-height: 100%;
+}
+
+body {
+  display: grid;
+  background: $dark;
+}
+
+.container {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  width: 650px;
+  height: 480px;
+}
+
+h1 {
+  font-family: $font;
+  text-align: center;
+  margin-top: 2em;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: $white;
+}
+
+#timer {
+  color: $white;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: $font;
+  font-size: .7em;
+  letter-spacing: 5px;
+  margin-top: 25%;
+}
+
+.days, .hours, .minutes, .seconds {
+  display: inline-block;
+  padding: 20px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.days {
+  background: $red;
+}
+
+.hours {
+  background: $white;
+  color: $dark;
+}
+
+.minutes {
+  background: $blue;
+}
+
+.seconds {
+  background: $yellow;
+  .numbers {
+   
+  }
+}
+
+.numbers {
+  font-family: $big;
+  color: $dark;
+  font-size: 4em;
+}
+
+.white {
+  position: absolute;
+  background: $white;
+  height: 85px;
+  width: 75px;
+  left: 30%;
+  top: 2%;
+  .triangle {
+    border-bottom: 14px solid $white;
+  }
+  .string {
+    background: $white;
+    border: 1px solid $white;
+  }
+}
+
+.red {
+  position: absolute;
+  background: $red;
+  left: 18%;
+  top: 9%;
+  height: 65px;
+  width: 70px;
+  .triangle {
+    border-bottom: 14px solid $red;
+  }
+  .string {
+    background: $red;
+    border: 1px solid $red;
+  }
+}
+
+.blue {
+  position: absolute;
+  background: $blue;
+  height: 80px;
+  width: 80px;
+  left: 60%;
+  top: 5%;
+  .triangle {
+    border-bottom: 14px solid $blue;
+  }
+  .string {
+    background: $blue;
+    border: 1px solid $blue;
+  }
+}
+
+.balloon {
+  border: 1px solid #000;
+  border-radius: 50% 50% 50% 50%/ 40% 40% 60% 60%;
+  z-index: 2;
+}
+
+.eye {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  top: 40%;
+  left: 22%;
+  background: #000;
+  border-radius: 50%;
+  &:after {
+    content: '';
+    left: 35px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #000;
+    position: absolute;
+  }
+}
+
+.mouth {
+  position:absolute;
+  top: 45%;
+  left: 43%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.happy {
+  border: 2px solid;
+  border-color: transparent #000 #000 transparent;
+  transform: rotate(45deg);
+}
+
+.triangle {
+  position: absolute;
+  left: 40%;
+  bottom: -10%;
+  width: 0;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+}
+
+.string {
+  position: absolute;
+  height: 70px;
+  width: 1px;
+  left: 48%;
+  top: 100%;
+  z-index: -1;
+}
+
+.star {
+  width: 20px;
+  height: 20px;
+  background: $white;
+  -webkit-clip-path: $star;
+  clip-path: $star;
+}
+
+.star-red {
+  width: 30px;
+  height: 30px;
+  margin-left: 51px;
+  margin-top: -5px;
+  background: $red;
+  -webkit-clip-path: $star;
+  clip-path: $star;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  text-transform: uppercase;
+  padding: 10px;
+  font-family: $font;
+  font-size: 0.7em;
+  p {
+    letter-spacing: 3px;
+    color: $red;
+  }
+  a {
+    color: $white;
+    text-decoration: none;
+    &:hover {
+      color: $blue;
+    }
+  }
+}
 
 /*========================
 contact
 =========================*/
+
+
+/*=======
+contact table
+=======*/
+
+.form-text {
+    wi;
+    border: 1px solid #ccc;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    max-width: 400px;
+}
+
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    height: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.contact-sex + .contact-sex {
+    margin-left: 10px;
+}
+
+.contact-sex-txt {
+    margin-left: 5px;
+}
+
+.form-select {
+    width: 180px;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-skill {
+    display: block;
+}
+
+.contact-skill + .contact-skill {
+    margin-top: 10px;
+}
+
+.contact-skill-txt {
+    margin-left: 5px;
+}
+
+
+.contact-submit {
+    width: 250px; /* 横幅指定 */
+    background-color: $base-color; /* 背景色 */
+    color: #fff; /* 文字色 */
+    font-weight: bold; /* 文字の太さ */
+    display: block; /* インライン要素をブロック要素に変更 */
+    margin: 0 auto; /* 中央寄せ */
+    font-size: 16px; /* 文字の大きさ */
+    padding: 15px; /* 内側の余白 */
+    border-radius: 100vh; /* 角丸指定 */
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+
+// ここから
 .contact {
     h2 {
         font-size: 35px;
@@ -265,19 +604,42 @@ contact
     }
 }
 
-input[type="email"] {
-    width: 600px;
-    font-size: 18px;
-    text-align: center;
-    display: block;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgb(0, 255, 123);
-    border-image: initial;
-    border-radius: 999px;
-    margin: auto auto 20px;
-    padding: 10px;
+.contact-item,
+.contact-body {
+    padding: 20px;
+    border: 1px solid #ccc;
 }
+
+.contact-item {
+  text-align: left; /* テキスト左寄せ */
+  width: 30%; /* 横幅30%指定（グレーの背景色部分） */
+  background-color: #eee; /* グレーの背景色 */
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.contact-body {
+  width: 70%; /* 横幅70%指定（白背景色部分） */
+}
+
+.contact-table {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+// input[type="email"] {
+//     width: 600px;
+//     font-size: 18px;
+//     text-align: center;
+//     display: block;
+//     border-width: 5px;
+//     border-style: solid;
+//     border-color: rgb(0, 255, 123);
+//     border-image: initial;
+//     border-radius: 999px;
+//     margin: auto auto 20px;
+//     padding: 10px;
+// }
 
 .btn {
     @extend .btn
@@ -297,7 +659,6 @@ footer {
         padding: 10px;
     }
 }
-
 /*====================================================
 スマホ用
 ====================================================*/
