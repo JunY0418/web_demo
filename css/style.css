@@ -164,7 +164,7 @@ header {
 top
 =========================*/
 .top {
-  background-image: url(/img/https://github.com/JunY0418/web_demo/blob/main/img/header-wasego.jpg?raw=true);
+  background-image: url(https://github.com/JunY0418/web_demo/blob/main/img/header-wasego.jpg?raw=true);
   background-repeat: no-repeat;
   /* background-size: contain; */
   /* width: auto; */
